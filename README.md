@@ -1,0 +1,1 @@
+# Application implements simple file flow using Spring Integration
