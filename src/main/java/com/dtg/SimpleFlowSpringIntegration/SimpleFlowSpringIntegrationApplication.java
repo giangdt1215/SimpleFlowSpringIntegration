@@ -1,6 +1,7 @@
 package com.dtg.SimpleFlowSpringIntegration;
 
 import com.dtg.SimpleFlowSpringIntegration.integration.FileWriterGateway;
+import com.dtg.SimpleFlowSpringIntegration.integration.FileWriterGatewayDSL;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,10 +15,11 @@ public class SimpleFlowSpringIntegrationApplication {
 	}
 
 	@Bean
-	public CommandLineRunner writeData(FileWriterGateway gateway){
+	public CommandLineRunner writeData(FileWriterGateway gateway, FileWriterGatewayDSL gatewayDsl){
 		return args -> {
 			String myName = "Dang Truong Giang";
 			gateway.writeToFile("giangdt.txt", myName);
+			gatewayDsl.writeToFile("giangdtdsl.txt", myName);
 		};
 	}
 }
